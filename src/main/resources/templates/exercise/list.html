@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper">
+		<section class="container">
+			<header class="major">
+				<h2>Sed magna consequat lorem curabitur tempus</h2>
+				<p>Elit aliquam vulputate egestas euismod nunc semper vehicula
+					lorem blandit</p>
+			</header>
+			<div class="row features">
+				<section class="col-4 col-12-narrower feature"  th:each="vo:${list}">
+					<div class="image-wrapper first">
+						<a href="#" class="image featured">
+							<img  th:src="${vo.b_thumbnail}" height="240px"  onerror="this.onerror=null; this.src='/images/noimage.png';"/>
+						</a>
+					</div>
+					<p>[[${vo.b_title}]]</p>
+				</section>
+				
+			</div>
+			<ul class="actions major">
+				<li th:if="${startPage > 1}"><a th:href="@{/exercise/list(page=${startPage-1})}">&laquo;</a></li>
+				<li th:each="i:${#numbers.sequence(startPage, endPage)}" th:class="${curpage==i?'active':''}"><a th:href="@{/exercise/list(page=${i})}">[[${i}]]</a></li>
+				<li th:if="${endPage < totalpage}"><a th:href="@{/exercise/list(page=${endPage+1})}">&raquo;</a></li>
+				
+			</ul>
+		</section>
+	</div>
+</body>
+</html>
