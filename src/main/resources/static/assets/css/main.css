@@ -1795,13 +1795,21 @@ input, select, textarea {
 
 /* List */
 
+	.listlen{
+		display: inline-block;
+		overflow: hidden;
+		max-width: 300px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
 	ul {
-		list-style: disc;
 		padding-left: 1em;
 	}
 
 		ul li {
 			padding-left: 0.5em;
+			margin-bottom: 7px;
 		}
 
 	ol {
@@ -2096,7 +2104,7 @@ input, select, textarea {
 		position: relative;
 		padding: 4em 0 2em 0;
 		
-        background: url("images/header.jpg") center / cover no-repeat;
+        background: url("images/header.png") center / cover no-repeat;
 	}
 
 	.homepage #header-wrapper {
@@ -2275,12 +2283,12 @@ input, select, textarea {
 	}
 
 		#hero h2 {
-			color: #000000;
+			color: #fff;
 			font-size: 3em;
 		}
 		
 		#hero p a {
-			color: #000000;
+			color: #fff;
 		}
 
 		#hero strong {
@@ -2292,7 +2300,7 @@ input, select, textarea {
 		}
 
 		#hero p {
-			color: #000000;
+			color: #fff;
 			font-size: 1.5em;
 			line-height: 1.5em;
 		}
@@ -2300,7 +2308,7 @@ input, select, textarea {
 		#hero .button {
 			background: #fff;
 			border-color: rgba(255, 255, 255, 0);
-			color: #f08c89;
+			color: #000000;
 			font-size: 1.25em;
 		}
 

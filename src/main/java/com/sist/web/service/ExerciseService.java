@@ -8,4 +8,6 @@ public interface ExerciseService {
 
 	public List<ExerciseVO> exerciseListData(int start);
 	public int exerciseTotalPage();
+	public List<ExerciseVO> exerciseTop10Data();
+
 }

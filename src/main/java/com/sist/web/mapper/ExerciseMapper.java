@@ -20,5 +20,13 @@ public interface ExerciseMapper {
 	
 	@Select("SELECT CEIL(COUNT(*)/12.0) FROM board")
 	public int exerciseTotalPage();
+	
+	@Select("SELECT b_id, b_title, rownum "
+			+ "FROM (SELECT  b_id, b_title "
+			+ "FROM board "
+			+ "WHERE b_type='운동건강' "
+			+ "ORDER BY b_view_count DESC) "
+			+ "WHERE rownum <= 10")
+	public List<ExerciseVO> exerciseTop10Data();
 }
 
