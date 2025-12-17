@@ -1,11 +1,80 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
 
-/*
-	Telephasic by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
+
+
+   #login-box {
+     position: absolute;
+     top: 0.8em;
+     right: 2em;
+     z-index: 10;
+   }
+
+   #login-box .login-form {
+     display: flex;
+     align-items: center;
+     gap: 0.4em;
+   }
+
+   #login-box input[type="text"],
+   #login-box input[type="password"] {
+     all: unset;
+     box-sizing: border-box;
+
+     width: 120px;
+     padding: 0.4em 0.5em;
+     font-size: 0.85em;
+     line-height: 1.2em;
+
+     background: #f9fbfe;
+     border: 1px solid #d2d7dc;
+     border-radius: 0.35em;
+     color: #52575c;
+   }
+
+   #login-box input::placeholder {
+     color: #777;
+   }
+
+   #login-box input:focus {
+     outline: 2px solid #f35858;
+     background: #fff;
+   }
+
+   #login-box button {
+     all: unset;
+     box-sizing: border-box;
+
+     padding: 0.4em 0.8em;
+     font-size: 0.85em;
+
+     border-radius: 0.35em;
+     border: 1px solid rgba(255,255,255,0.7);
+     background: rgba(255,255,255,0.15);
+     color: #fff;
+
+     cursor: pointer;
+   }
+
+   #login-box button:hover {
+     background: rgba(255,255,255,0.35);
+   }
+
+   #login-box .login-user {
+     display: flex;
+     align-items: center;
+     gap: 0.6em;
+   }
+
+   #login-box .login-user p {
+     margin: 0;
+     padding: 0;
+     font-size: 0.9em;
+     line-height: 1.2em;
+     color: #fff;
+     white-space: nowrap;
+   }
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,

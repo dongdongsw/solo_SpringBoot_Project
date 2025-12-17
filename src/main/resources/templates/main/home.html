@@ -55,34 +55,21 @@
 				<div class="wrapper">
 					<section class="container">
 						<header class="major">
-							<h2>Sed magna consequat lorem curabitur tempus</h2>
-							<p>Elit aliquam vulputate egestas euismod nunc semper vehicula lorem blandit</p>
+							<h2>운동화 TOP 3</h2>
 						</header>
 						<div class="row features">
-							<section class="col-4 col-12-narrower feature">
+							<section class="col-4 col-12-narrower feature" th:each="vo:${list}">
 								<div class="image-wrapper first">
-									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+									<a href="#" class="image featured">
+										<img th:src="${vo.img}" referrerpolicy="no-referrer" alt="" />
+									</a>
 								</div>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
-								vel sem sit dolor neque semper magna lorem ipsum.</p>
+								<p>[[${vo.name_kor}]]</p>
 							</section>
-							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
-								vel sem sit dolor neque semper magna lorem ipsum.</p>
-							</section>
-							<section class="col-4 col-12-narrower feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur
-								vel sem sit dolor neque semper magna lorem ipsum.</p>
-							</section>
+							
 						</div>
 						<ul class="actions major">
-							<li><a href="#" class="button">Elevate my awareness</a></li>
+							<li><a href="/shoes/list" class="button">더 자세히 보기</a></li>
 						</ul>
 					</section>
 				</div>

@@ -8,7 +8,6 @@
 
 <div class="wrapper">
   <div class="container" id="main">
-
     <header>
       <h2>게시글 삭제</h2>
       <p>비밀번호를 입력해주세요</p>
@@ -17,15 +16,11 @@
     <hr>
 
     <form method="post" action="/board/delete_ok">
-
       <div class="row gtr-uniform">
-
         <div class="col-12 col-12-xsmall">
           <input type="password" name="pwd" placeholder="비밀번호">
   	  	  <input type="hidden" name="no" th:value=${no}>
-
         </div>
-
       </div>
 
       <hr>
@@ -34,11 +29,8 @@
         <li><input type="submit" value="삭제" class="button"></li>
         <li><button class="button" onclick="javascript:history.back()">취소</button></li>
       </ul>
-
     </form>
-
   </div>
 </div>
-
 </body>
 </html>

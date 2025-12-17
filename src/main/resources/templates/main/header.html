@@ -5,54 +5,120 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- Header -->
-				<div id="header-wrapper">
-					<div id="header" class="container">
+	<div id="header-wrapper">
+		<div id="header" class="container">
 
-						<!-- Logo -->
-							<h1 id="logo"><a href="/">Exer</a></h1>
+			<h1 id="logo"><a href="/">Exer</a></h1>
 
-						<!-- Nav -->
-							<nav id="nav">
+			<nav id="nav">
+				<ul>
+					<li>
+						<a href="#">Dropdown</a>
+						<ul>
+							<li><a href="#">Lorem ipsum dolor</a></li>
+							<li><a href="#">Magna phasellus</a></li>
+							<li><a href="#">Etiam dolore nisl</a></li>
+							<li>
+								<a href="#">Phasellus consequat</a>
 								<ul>
-									<li>
-										<a href="#">Dropdown</a>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-											<li>
-												<a href="#">Phasellus consequat</a>
-												<ul>
-													<li><a href="#">Lorem ipsum dolor</a></li>
-													<li><a href="#">Phasellus consequat</a></li>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam dolore nisl</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Veroeros feugiat</a></li>
-										</ul>
-									</li>
-									<li><a href="/board/list">게시판</a></li>
-									<li class="break"><a href="/exercise/list">운동건강</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><a href="#">Lorem ipsum dolor</a></li>
+									<li><a href="#">Phasellus consequat</a></li>
+									<li><a href="#">Magna phasellus</a></li>
+									<li><a href="#">Etiam dolore nisl</a></li>
 								</ul>
-							</nav>
-
-					</div>
-
-					<!-- Hero -->
-						<section id="hero" class="container">
-							<header>
-								<h2>당신의 몸은 노력에 정직하다</h2>
-							</header>
-							<p>오늘의 운동이 내일의 변화를 만듭니다</p>
-							<br>
-							<ul class="actions">
-								<li><a href="#" class="button">운동 시작하기</a></li>
-							</ul>
-						</section>
-
+							</li>
+							<li><a href="#">Veroeros feugiat</a></li>
+						</ul>
+					</li>
+					<li><a href="/board/list">게시판</a></li>
+					<li class="break"><a href="/exercise/list">운동•건강</a></li>
+					<li><a href="/shoes/list">운동화</a></li>
+				</ul>
+			</nav>
+			<div id="login-box">
+				<div class="login-form" th:if="${session.id==null}"  @keyup.enter="login()">
+				    <input type="text" ref="id" placeholder="아이디" v-model="id">
+				    <input type="password" ref="pwd" placeholder="비밀번호" v-model="pwd" >
+				    <button type="submit" @click="login()">로그인</button>
 				</div>
+				<div class="login-user" th:if="${session.id!=null}">
+				    <p style="color: white;">[[${session.name}]]님이 로그인되었습니다.</p>
+				    <button type="submit" @click="logout()">로그아웃</button>
+				</div>
+			</div>
+		</div>
+		<section id="hero" class="container">
+			<header>
+				<h2>당신의 몸은 노력에 정직하다</h2>
+			</header>
+			<p>오늘의 운동이 내일의 변화를 만듭니다</p>
+			<br>
+			<ul class="actions">
+				<li><a href="#" class="button">운동 시작하기</a></li>
+			</ul>
+		</section>
+	</div>
+	<script>
+		const logApp = Vue.createApp({
+			data(){
+				return{
+					id:'',
+					pwd:'',
+					vo:{}
+				}
+			},
+			methods:{
+				login(){
+					if(this.id === ""){
+						this.$refs.id.focus()
+						return	
+					}
+					if(this.pwd === ""){
+						this.$refs.pwd.focus()
+						return	
+					}
+					axios.get('http://localhost/member/login_vue/',{
+						params:{
+							id:this.id,
+							pwd:this.pwd
+						}
+					}).then(response=>{
+						console.log(response.data)
+						this.vo = response.data
+						if(response.data.msg === 'OK'){
+							location.href="/"
+						}
+						if(response.data.msg === 'NOID'){
+							alert('아이디가 존재하지 않습니다.')
+							this.id=""
+							this.pwd=""
+							this.$refs.id.focus()							
+						}
+						if(response.data.msg === 'NOPWD'){
+							alert('비밀번호가 틀렸습니다.')
+							this.pwd=""
+							this.$refs.pwd.focus()
+						}
+												
+					})
+					
+				},
+				
+				logout(){
+					axios.get('http://localhost/member/logout_vue/')
+					.then(response=>{
+						if(response.data === 'yes'){
+							location.href="/"
+						}
+					})
+				}
+			}
+			
+		})
+		logApp.config.compilerOptions.delimiters=['((','))']
+		logApp.mount("#header-wrapper")
+		
+	</script>			
+				
 </body>
 </html>
