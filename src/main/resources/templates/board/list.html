@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Board List</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="container" id="main">
+	<h3 style="text-align:center;">게시판</h3>
+	<hr>
+	
+    <ul class="actions">
+      <li>
+        <a href="/board/insert" class="button">새글</a>
+      </li>
+    </ul>
+    
+    <table class="default">
+      <thead>
+        <tr>
+          <th style="width:10%; text-align:center;">번호</th>
+          <th style="width:45%;">제목</th>
+          <th style="width:15%; text-align:center;">이름</th>
+          <th style="width:20%; text-align:center;">작성일</th>
+          <th style="width:10%; text-align:center;">조회수</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="vo : ${list}">
+          <td style="text-align:center;">[[${vo.no}]]</td>
+          <td>
+            <a th:href="@{/board/detail(no=${vo.no})}" class="listlen">
+              [[${vo.subject}]]
+            </a>
+          </td>
+          <td style="text-align:center;">[[${vo.name}]]</td>
+          <td style="text-align:center;">[[${vo.dbday}]]</td>
+          <td style="text-align:center;">[[${vo.hit}]]</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="5" style="text-align:center;">
+            <a th:href="@{/board/list(page=${curpage-1})}" class="button">이전</a>
+            &nbsp;
+            [[${curpage}]] / [[${totalpage}]]
+            &nbsp;
+            <a th:href="@{/board/list(page=${curpage+1})}" class="button">다음</a>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>
+
+</body>
+</html>

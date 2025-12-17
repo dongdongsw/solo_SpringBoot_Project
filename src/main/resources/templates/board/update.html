@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Board Write</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="container" id="main">
+
+    <header>
+      <h2>글 수정</h2>
+      <p>게시글을 수정해주세요</p>
+    </header>
+
+    <hr>
+
+    <form method="post" action="/board/update_ok">
+
+      <div class="row gtr-uniform">
+
+        <div class="col-6 col-12-xsmall">
+          <input type="text" name="name" th:value="${vo.name}" required>
+          <input type="hidden" name="no" th:value="${vo.no}">
+        </div>
+
+        <div class="col-12">
+          <input type="text" name="subject" th:value="${vo.subject}" required>
+        </div>
+
+        <div class="col-12">
+          <textarea name="content" rows="10"   required>[[${vo.content}]]</textarea>
+        </div>
+        
+		<div class="col-6 col-12-xsmall">
+          <input type="password" name="pwd" placeholder="비밀번호" required>
+        </div>
+      </div>
+
+      <hr>
+
+      <ul class="actions">
+        <li><input type="submit" value="수정완료" class="button"></li>
+        <li><a href="/board/list" class="button">취소</a></li>
+      </ul>
+
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1795,7 +1795,7 @@ input, select, textarea {
 
 /* List */
 
-	.listlen{
+	#footer .listlen{
 		display: inline-block;
 		overflow: hidden;
 		max-width: 300px;
@@ -2023,6 +2023,27 @@ input, select, textarea {
 		cursor: pointer;
 		outline: 0;
 	}
+	
+	#list input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	button,
+	.button {
+		-moz-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-ms-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		display: inline-block;
+		color: inherit;
+		background: none;
+		text-decoration: none;
+		border: solid 1px #c2c7cc;
+		border-radius: 0.35em;
+		padding: 0.5em 1em 0.5em 1em;
+		cursor: pointer;
+		outline: 0;
+	}
+	
 
 		input[type="button"]:hover,
 		input[type="submit"]:hover,

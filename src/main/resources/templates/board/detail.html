@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Board Detail</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="container" id="main">
+	
+    <!-- 제목 -->
+    <header>
+      <h2>제목 : [[${vo.subject}]]</h2>
+      
+      <p>
+        [[${vo.name}]] | [[${vo.regdate}]] | 조회수 [[${vo.hit}]]
+      </p>
+    </header>
+
+    <hr>
+
+    <!-- 내용 -->
+    <section>
+      <p>
+        [[${vo.content}]]
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- 하단 버튼 -->
+    <ul class="actions">
+      <li><a href="/board/list" class="button">목록</a></li>
+      <li><a th:href="@{/board/update(no=${vo.no})}" class="button">수정</a></li>
+      <li><a th:href="@{/board/delete(no=${vo.no})}" class="button">삭제</a></li>
+    </ul>
+
+  </div>
+</div>
+
+</body>
+</html>
