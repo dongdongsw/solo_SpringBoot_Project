@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper">
+	  <div class="container" id="main">
+	    <article id="content">
+	      <header>
+	        <h2>[[${vo.name_kor}]]</h2>
+	        <p>[[${vo.brand}]]</p>
+	      </header>
+	      <div class="row">
+	        <div class="col-3 col-12-medium">
+	          <span class="image fit">
+	            <img th:src="${vo.img}" referrerpolicy="no-referrer"  alt="신발 이미지">
+	          </span>
+	        </div>
+	        <div class="col-9 col-12-medium">
+	          <section class="box">
+	            <ul>
+	              <li><strong>제품 이름(영문)</strong> : [[${vo.name_eng}]]</li>
+	              <li><strong>브랜드명</strong> : [[${vo.brand}]]</li>
+	              <li>
+	              <strong>카테고리 </strong>:
+	              	<span th:if="${vo.category_id == 1 || vo.category_id == 2 }">스니커즈</span>
+	              	<span th:if="${vo.category_id == 3}">샌들/슬리퍼</span>
+	              	<span th:if="${vo.category_id == 4}">부츠</span>
+	              	<span th:if="${vo.category_id == 5}">기타</span>
+	              </li>
+	              <li><strong>가격</strong> : [[${vo.im_sell}]]원</li>
+	              <li><strong>일련번호</strong> : [[${vo.sku}]]</li>
+	              <li><strong>색상</strong> : [[${vo.color}]]</li>
+	              <li><strong>조회수</strong> : [[${vo.hit}]]</li>
+	            </ul>
+	          </section>
+	        </div>
+	      </div>
+	    </article>
+	  </div>
+	</div>
+</body>
+</html>

@@ -32,6 +32,13 @@ public class ExerciseServiceImpl implements ExerciseService{
 		// TODO Auto-generated method stub
 		return mapper.exerciseTop10Data();
 	}
+
+	@Override
+	public ExerciseVO exerciseDetailData(String b_id) {
+		// TODO Auto-generated method stub
+		mapper.exerciseHitIncrement(b_id);
+		return mapper.exerciseDetailData(b_id);
+	}
 	
 	
 }

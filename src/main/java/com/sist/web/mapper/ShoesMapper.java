@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.sist.web.vo.ShoesVO;
@@ -27,4 +28,12 @@ public interface ShoesMapper {
 	
 	@Select("SELECT CEIL(COUNT(*)/12.0) FROM shoes")
 	public int shoesTotalPage();
+	
+	@Update("UPDATE shoes SET "
+			+ "hit = hit + 1 "
+			+ "WHERE goods_id = #{goods_id}")
+	public void shoesHitIncrement(int goods_id);
+	
+	@Select("SELECT * FROM shoes WHERE goods_id = #{goods_id}")
+	public ShoesVO shoesDetailData(int goods_id);
 }

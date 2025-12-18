@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper">
+	  <div class="container" id="main">
+	    <article id="content">
+	      <header>
+	        <h2>[[${vo.b_title}]]</h2>
+	        <!-- <p>[[${vo.album}]]</p> -->
+	      </header>
+	      <!-- <div class="row">
+	        <div class="col-3 col-12-medium">
+	          <span class="image fit">
+	            <img th:src="${vo.poster}" alt="음악 이미지">
+	          </span>
+	        </div>
+	        <div class="col-9 col-12-medium">
+	          <section class="box">
+	            <ul>
+	              <li>
+					  <strong>랭킹</strong> :
+					  [[${vo.rank}]]
+					
+					  <span th:if="${#strings.trim(vo.state) == '상승'}" style="font-size: 15px; color: blue;">
+					    ▴[[${vo.idcrement}]]
+					  </span>
+					
+					  <span th:if="${#strings.trim(vo.state) == '하강'}"  style="font-size: 15px; color: red;">
+					    ▾[[${vo.idcrement}]]
+					  </span>
+					</li>
+	              <li><strong>가수</strong> : [[${vo.singer}]]</li>
+	              <li><strong>앨범</strong> : [[${vo.album}]]</li>
+	              <li><strong>조회수</strong> : [[${vo.hit}]]</li>
+	              <li><strong>좋아요</strong> : [[${vo.likecount}]]</li>
+	            </ul>
+	          </section>
+	        </div>
+	      </div> -->
+	    </article>
+	  </div>
+	</div>
+</body>
+</html>

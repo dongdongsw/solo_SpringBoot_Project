@@ -32,6 +32,13 @@ public class ShoesServiceImpl implements ShoesService{
 		// TODO Auto-generated method stub
 		return mapper.shoesTotalPage();
 	}
+
+	@Override
+	public ShoesVO shoesDetailData(int goods_id) {
+		// TODO Auto-generated method stub
+		mapper.shoesHitIncrement(goods_id);
+		return mapper.shoesDetailData(goods_id);
+	}
 	
 	
 }

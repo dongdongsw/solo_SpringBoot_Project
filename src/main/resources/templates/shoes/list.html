@@ -14,7 +14,7 @@
 			<div class="row features">
 				<section class="col-4 col-12-narrower feature"  th:each="vo:${list}">
 					<div class="image-wrapper first">
-						<a href="#" class="image featured">
+						<a th:href="@{/shoes/detail(goods_id=${vo.goods_id})}" class="image featured">
 							<img  th:src="${vo.img}"  referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/images/noimage.png';"/>
 						</a>
 					</div>

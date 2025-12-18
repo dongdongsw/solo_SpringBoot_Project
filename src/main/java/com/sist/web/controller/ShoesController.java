@@ -42,4 +42,14 @@ public class ShoesController {
 		model.addAttribute("main_html", "shoes/list");
 		return "main/main";
 	}
+	
+	@GetMapping("/shoes/detail")
+	public String shoes_detail(@RequestParam("goods_id") int goods_id, Model model) {
+		
+		ShoesVO vo = sService.shoesDetailData(goods_id);
+		model.addAttribute("vo", vo);
+		
+		model.addAttribute("main_html", "shoes/detail");
+		return "main/main";
+	}
 }

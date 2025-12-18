@@ -9,4 +9,5 @@ public interface ShoesService {
 	public List<ShoesVO> shoesTop3Data();
 	public List<ShoesVO> shoesListData(int start);
 	public int shoesTotalPage();
+	public ShoesVO shoesDetailData(int goods_id);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.sist.web.vo.ExerciseVO;
@@ -28,5 +29,16 @@ public interface ExerciseMapper {
 			+ "ORDER BY b_view_count DESC) "
 			+ "WHERE rownum <= 10")
 	public List<ExerciseVO> exerciseTop10Data();
+	
+	@Update("UPDATE board SET "
+			+ "b_view_count = b_view_count + 1 "
+			+ "WHERE b_id = #{b_id}")
+	public void exerciseHitIncrement(String b_id);
+	
+	@Select("SELECT * "
+			+ "FROM board "
+			+ "LEFT JOIN board_option "
+			+ "WHERE b_id = #{b_id}")
+	public ExerciseVO exerciseDetailData(String b_id);
 }
 

@@ -15,7 +15,7 @@
 			<div class="row features">
 				<section class="col-4 col-12-narrower feature"  th:each="vo:${list}">
 					<div class="image-wrapper first">
-						<a href="#" class="image featured">
+						<a th:href="@{/exercise/detail(no=${vo.no})}" class="image featured">
 							<img  th:src="${vo.b_thumbnail}" height="240px"  onerror="this.onerror=null; this.src='/images/noimage.png';"/>
 						</a>
 					</div>
