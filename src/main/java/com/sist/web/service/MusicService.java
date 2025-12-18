@@ -8,5 +8,5 @@ public interface MusicService {
 	public List<MusicVO> musicListData(int start);
 	public int musicTotalPage();
 	public MusicVO musicDetailData(int no);
-
+	public List<MusicVO> musicTop10Data();
 }

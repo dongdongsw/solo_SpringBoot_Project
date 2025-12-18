@@ -35,10 +35,7 @@ public interface ExerciseMapper {
 			+ "WHERE b_id = #{b_id}")
 	public void exerciseHitIncrement(String b_id);
 	
-	@Select("SELECT * "
-			+ "FROM board "
-			+ "LEFT JOIN board_option "
-			+ "WHERE b_id = #{b_id}")
-	public ExerciseVO exerciseDetailData(String b_id);
+
+	public List<ExerciseVO> exerciseDetailData(String b_id);
 }
 

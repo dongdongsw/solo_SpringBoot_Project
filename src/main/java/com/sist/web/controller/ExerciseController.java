@@ -50,7 +50,8 @@ public class ExerciseController {
 	@GetMapping("/exercise/detail")
 	public String exercise_detail(@RequestParam("b_id") String b_id, Model model) {
 		
-		ExerciseVO vo = eService.exerciseDetailData(b_id);
+		List<ExerciseVO> list = eService.exerciseDetailData(b_id);
+		ExerciseVO vo = list.get(0);
 		model.addAttribute("vo", vo);
 		
 		model.addAttribute("main_html","exercise/detail");

@@ -31,4 +31,11 @@ public interface MusicMapper {
 			+ "WHERE no = #{no}")
 	public MusicVO musicDetailData(int no);
 	
+	@Select("SELECT no, title, hit, rownum "
+			+ "FROM (SELECT no, title, hit "
+			+ "FROM genie_music "
+			+ "ORDER BY hit DESC) "
+			+ "WHERE rownum <= 10")
+	public List<MusicVO> musicTop10Data();
+	
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.web.mapper.ExerciseMapper">
+
+	<resultMap type="com.sist.web.vo.ExerciseVO" id="ExerciseMap">
+		<id property="b_id" column="board_b_id"/>
+		<result property="u_s_id" column="u_s_id"/>
+		<result property="b_filter" column="b_filter"/>
+		<result property="b_title" column="b_title"/>
+		<result property="b_content" column="b_content"/>
+		<result property="b_thumbnail" column="b_thumbnail"/>
+		<result property="b_prod_on_off" column="b_prod_on_off"/>
+		<result property="b_status" column="b_status"/>
+		<result property="b_type" column="b_type"/>
+		<result property="b_view_count" column="b_view_count"/>
+		<result property="b_createdat" column="b_createdat"/>
+		<result property="b_updatedat" column="b_updatedat"/>
+		
+		 <association property="usvo" javaType="com.sist.web.vo.SellerVO">
+		 	<id property="u_s_id" column="u_s_id"/>
+	        <result property="u_s_com" column="u_s_com"/>
+	        <result property="u_s_zone" column="u_s_zone"/>
+	    </association>
+		
+		<collection property="eovo" ofType="com.sist.web.vo.Exercise_OptionVO">
+			<id property="b_op_id" column="b_op_id"/>
+			<result property="b_id" column="option_b_id"/>
+			<result property="b_op_price" column="b_op_price"/>
+			<result property="b_op_title" column="b_op_title"/>
+			<result property="b_op_detail" column="b_op_detail"/>
+		</collection>
+		
+	</resultMap>
+
+	<select id="exerciseDetailData" resultMap="ExerciseMap">
+		SELECT b.b_id as board_b_id, b.b_filter, b.b_title, b.b_content, 
+			b.b_thumbnail, b.b_prod_on_off, b.b_status, b.b_type,
+			b.b_createdat, b.b_updatedat, b.b_view_count,
+			bo.b_op_price, bo.b_op_id, bo.b_id as option_b_id, bo.b_op_title, 
+			bo.b_op_detail, us.u_s_id, us.u_s_zone, us.u_s_com
+		FROM board b
+		LEFT JOIN board_option bo
+			ON b.b_id = bo.b_id
+		LEFT JOIN users_seller us 
+			ON b.u_s_id = us.u_s_id
+		WHERE b.b_id = #{b_id}
+	</select>
+
+</mapper>

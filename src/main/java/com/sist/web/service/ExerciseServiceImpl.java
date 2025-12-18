@@ -34,7 +34,7 @@ public class ExerciseServiceImpl implements ExerciseService{
 	}
 
 	@Override
-	public ExerciseVO exerciseDetailData(String b_id) {
+	public List<ExerciseVO> exerciseDetailData(String b_id) {
 		// TODO Auto-generated method stub
 		mapper.exerciseHitIncrement(b_id);
 		return mapper.exerciseDetailData(b_id);

@@ -9,7 +9,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.sist.web.service.ExerciseService;
+import com.sist.web.service.MusicService;
 import com.sist.web.vo.ExerciseVO;
+import com.sist.web.vo.MusicVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +22,16 @@ import lombok.RequiredArgsConstructor;
 public class FooterAOP {
 
 	private final ExerciseService eService;
+	private final MusicService mService;
 	
 	@After("execution(* com.sist.web.controller.*Controller.*(..))")
 	public void after() {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
 		
 		List<ExerciseVO> exerciseTop10List = eService.exerciseTop10Data();
+		List<MusicVO> musicTop10List = mService.musicTop10Data();
+		
 		request.setAttribute("exerciseTop10List", exerciseTop10List);
+		request.setAttribute("musicTop10List", musicTop10List);
 	}
 }

@@ -9,6 +9,6 @@ public interface ExerciseService {
 	public List<ExerciseVO> exerciseListData(int start);
 	public int exerciseTotalPage();
 	public List<ExerciseVO> exerciseTop10Data();
-	public ExerciseVO exerciseDetailData(String b_id);
+	public List<ExerciseVO> exerciseDetailData(String b_id);
 
 }
