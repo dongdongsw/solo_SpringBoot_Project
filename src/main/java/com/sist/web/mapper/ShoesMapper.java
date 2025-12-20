@@ -13,8 +13,8 @@ import com.sist.web.vo.ShoesVO;
 @Repository
 public interface ShoesMapper {
 
-	@Select("SELECT im_sell, name_kor, brand, img, sku, color, type, bookmark, rownum "
-			+ "FROM (SELECT im_sell, name_kor, brand, img, sku, color, type, bookmark, rownum as num "
+	@Select("SELECT goods_id, im_sell, name_kor, brand, img, sku, color, type, bookmark, rownum "
+			+ "FROM (SELECT goods_id, im_sell, name_kor, brand, img, sku, color, type, bookmark, rownum as num "
 			+ "FROM shoes "
 			+ "ORDER BY bookmark DESC) "
 			+ "WHERE rownum <= 3")

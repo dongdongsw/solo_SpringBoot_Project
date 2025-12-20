@@ -9,24 +9,27 @@
 	<!-- Features 1 -->
 				<div class="wrapper">
 					<div class="container" style="width: 1700px;">
+						<header class="major">
+							<h2>조회수 가장 많은 음식점 Top 5</h2>
+						</header>
 						<div class="row"  style="flex-wrap: nowrap; ">
-							<section class="col-3 col-12-narrower feature">
+							<section class="col-3 col-12-narrower feature" th:each="fvo:${flist}">
 								<div class="image-wrapper first">
-									<a href="#" class="image featured first"><img src="images/pic01.jpg" alt="" /></a>
+									<a th:href="@{/food/detail(fno=${fvo.fno})}" class="image featured first">
+										<img th:src="${fvo.poster}" alt="" />
+									</a>
 								</div>
-								<header >
-									<h2 >Semper magna neque vel<br />
-									adipiscing curabitur</h2>
+								<header>
+									<h3 class="h3title">[[${fvo.name}]]</h3>
 								</header>
-								<p>Lorem ipsum dolor sit amet consectetur et sed adipiscing elit. Curabitur vel
-								sem sit dolor neque semper magna. Lorem ipsum dolor sit amet consectetur et sed
-								adipiscing elit. Curabitur vel sem sit.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Elevate my awareness</a></li>
-								</ul>
+								
 							</section>
+							
 						</div>
 					</div>
+					<ul class="actions major">
+						<li><a href="/food/list" class="button" style="margin-top: 10px;">더 자세히 보기</a></li>
+					</ul>
 				</div>
 
 			<!-- Promo -->
@@ -46,7 +49,7 @@
 						<div class="row features">
 							<section class="col-4 col-12-narrower feature" th:each="vo:${list}">
 								<div class="image-wrapper first">
-									<a href="#" class="image featured">
+									<a th:href="@{/shoes/detail(goods_id=${vo.goods_id})}" class="image featured">
 										<img th:src="${vo.img}" referrerpolicy="no-referrer" alt="" />
 									</a>
 								</div>

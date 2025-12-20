@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper">
+		<section class="container">
+			<header class="major">
+				<h2>검증된 트레이너를 한 곳에서</h2>
+				<p>경력 · 후기 · 전문 분야까지 비교하고
+				나에게 맞는 운동 트레이너를 찾아보세요</p>
+			</header>
+			<div class="row features">
+				<section class="col-4 col-12-narrower feature"  th:each="vo:${list}">
+					<div class="image-wrapper first">
+						<a th:href="@{/food/detail(fno=${vo.fno})}" class="image featured">
+							<img  th:src="${vo.poster}" height="240px"  onerror="this.onerror=null; this.src='/images/noimage.png';"/>
+						</a>
+					</div>
+					<p>[[${vo.name}]]</p>
+				</section>
+				
+			</div>
+			<ul class="actions major">
+				<li th:if="${startPage > 1}"><a th:href="@{/food/list(page=${startPage-1})}">&laquo;</a></li>
+				<li th:each="i:${#numbers.sequence(startPage, endPage)}" th:class="${curpage==i?'active':''}"><a th:href="@{/food/list(page=${i})}">[[${i}]]</a></li>
+				<li th:if="${endPage < totalpage}"><a th:href="@{/food/list(page=${endPage+1})}">&raquo;</a></li>
+				
+			</ul>
+		</section>
+	</div>
+</body>
+</html>
