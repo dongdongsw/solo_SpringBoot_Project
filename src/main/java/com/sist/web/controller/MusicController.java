@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sist.web.service.MusicService;
 import com.sist.web.vo.MusicVO;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -47,11 +48,17 @@ public class MusicController {
 	}
 	
 	@GetMapping("/detail")
-	public String music_detail(@RequestParam("no") int no, Model model) {
+	public String music_detail(@RequestParam("no") int no, Model model, HttpSession session) {
 		
 		MusicVO vo = mService.musicDetailData(no);
 		model.addAttribute("vo", vo);
-		
+		String id = (String)session.getAttribute("id");
+		if(id == null) {
+			model.addAttribute("sessionId","");
+		}
+		else {
+			model.addAttribute("sessionId",id);
+		}
 		model.addAttribute("main_html", "music/detail");
 		return "main/main";
 	}

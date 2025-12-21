@@ -119,7 +119,7 @@ width: 300px;
      all: unset;
      box-sizing: border-box;
 
-     padding: 0.4em 0.8em;
+     padding: 0.0em 0.8em;
      font-size: 0.85em;
 
      border-radius: 0.35em;
@@ -2263,12 +2263,23 @@ input, select, textarea {
 			background: #f6f8fb url("images/image-wrapper.svg");
 		}
 
-	#header-wrapper {
-		position: relative;
-		padding: 4em 0 2em 0;
+		#header-wrapper {
+		    position: relative;
+		    padding: 4em 0 2em 0;
+		    background: url("images/header.jpg") center / cover no-repeat;
+		}
+
+		#header-wrapper::before {
+		    content: "";
+		    position: absolute;
+		    inset: 0;
+		    background: rgba(0,0,0,0.35);
+		    z-index: 0;
+		}
+	
+	/* 글자는 오버레이 위로 */
 		
-        background: url("images/header.png") center / cover no-repeat;
-	}
+
 
 	.homepage #header-wrapper {
 		padding: 10em 0 6em 0;
